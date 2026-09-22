@@ -92,9 +92,6 @@ nav.main a.current { color: var(--ink); }
 .hero {
   padding: 88px 0 72px;
 }
-.hero .wrap {
-  position: relative;
-}
 .hero h1 {
   font-size: 48px;
   font-weight: 800;
@@ -110,17 +107,28 @@ nav.main a.current { color: var(--ink); }
   margin: 0 0 32px;
 }
 
-/* Hero sketch: simple whiteboard-style animated drawing in the top-right whitespace */
-.hero-sketch {
-  position: absolute;
-  top: 6px;
-  right: 0;
-  width: 300px;
-  height: auto;
-  pointer-events: none;
+/* Intro overlay: full-screen whiteboard-style sketch that plays on page load, then fades to reveal the site. Same on mobile and desktop. */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: intro-fade-out 0.6s ease-in 3.0s forwards;
 }
-@media (max-width: 980px) {
-  .hero-sketch { display: none; }
+.intro-sketch {
+  width: min(78vw, 440px);
+  height: auto;
+}
+@keyframes intro-fade-out {
+  0%   { opacity: 1; }
+  99%  { opacity: 0; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-overlay { display: none; }
 }
 .sketch-circle {
   fill: none;
@@ -147,7 +155,7 @@ nav.main a.current { color: var(--ink); }
 .sketch-a {
   stroke-dasharray: 228;
   stroke-dashoffset: 228;
-  animation: draw-stroke 0.6s ease-out 1.3s forwards;
+  animation: draw-stroke 0.6s ease-out 0.9s forwards;
 }
 .sketch-b {
   stroke-dasharray: 228;
@@ -157,10 +165,10 @@ nav.main a.current { color: var(--ink); }
 .sketch-line {
   stroke-dasharray: 249;
   stroke-dashoffset: 249;
-  animation: draw-stroke 0.7s ease-out 0.9s forwards;
+  animation: draw-stroke 0.7s ease-out 1.9s forwards;
 }
 .sketch-label-a {
-  animation: sketch-fade-in 0.4s ease-out 1.9s forwards;
+  animation: sketch-fade-in 0.4s ease-out 1.3s forwards;
 }
 .sketch-label-b {
   animation: sketch-fade-in 0.4s ease-out 0.7s forwards;
@@ -170,15 +178,6 @@ nav.main a.current { color: var(--ink); }
 }
 @keyframes sketch-fade-in {
   to { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-sketch .sketch-circle,
-  .hero-sketch .sketch-line,
-  .hero-sketch .sketch-label {
-    animation: none !important;
-    stroke-dashoffset: 0 !important;
-    opacity: 1 !important;
-  }
 }
 
 /* Sections */
