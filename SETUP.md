@@ -26,10 +26,14 @@
 ## 5. Updating content later
 No command line required. Edit the file, then in the repo click the file → the pencil (edit) icon → make the change → **Commit changes**. It republishes automatically within a minute or two. If you'd rather send me the change and have me hand back an updated file, that works too — just re-upload what I give you the same way as step 2.
 
-## Still open before this can go live
-- Confirm with compliance whether the insurance disclosure line needs "...through Desjardins Financial Security Independent Network" appended (see the `TODO` comment in each page's footer).
-- Replace the Privacy Policy page with compliance's approved template.
-- Fill in the About page's bio paragraph and, optionally, a headshot.
+## For compliance review
+The on-page yellow draft notes are gone now that this is going to review, but these are the specific open questions behind them — worth flagging to your reviewer directly rather than assuming they'll spot them:
+
+- **About page bio** ("They tell me I listen well... nobody has explained things in 'that way' before") is paraphrased client-feedback language. That's testimonial-adjacent content, which typically carries its own disclosure/consent requirements separate from the standard trademark and licensing lines — flag it specifically rather than reviewing it as ordinary marketing copy.
+- **Insurance disclosure line** ("Randy Little is licensed to offer life and health insurance in the province of Ontario") — confirm whether it needs "...through Desjardins Financial Security Independent Network" appended, matching the mutual-fund line's pattern. Still an open question; there's an invisible `TODO` comment in each page's HTML source marking it.
+- **Privacy Policy page is still a placeholder** — generic filler text, not compliance-approved language. This one I did *not* strip the draft warning from (it still says "Pending — do not launch with this page in its current state" right on the page) specifically so it doesn't get approved by accident while looking finished. Needs your actual template before this goes live.
+- **"Choose Simple" tagline** — added to the footer of every page under the logo row. Worth a compliance glance too, mainly to confirm it isn't itself a piece of registered/reviewed messaging.
+- **Contact page map embed** — uses Google's free no-API-key embed trick, keyed to a verified Google Place ID for the building, with a "View larger map" link as backup if the embed itself doesn't render for some visitor. This is a technical note, not a compliance one — nothing for a reviewer to weigh in on.
 - Double check the booking link on the Contact page — it's currently the `sfl.ca`-domain Outlook Bookings link you gave earlier; confirm that's still the right one given the SFL/DFSIN naming mix-up you mentioned.
 
 ## From the DFSIN brand guide you sent
